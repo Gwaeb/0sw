@@ -78,7 +78,7 @@ void update() {
       case 'w':
         currentTime = millis();
         if(deltaTime < currentTime){
-          deltaTime +=1000;
+          deltaTime = currentTime + 1000;
           Bullet bTempo = new Bullet(bulletId, v.location.copy(), (v.heading), v.size);
           bulletId++;
           bTempo.setDirection();
@@ -183,9 +183,8 @@ void keyReleased() {
 
 void reset(){
   currentTime = millis();
-  previousTime = millis();
+  previousTime = millis(); 
   
-  file.stop();
   
   v = new Vaisseau();
   v.location.x = width / 2;
